@@ -61,7 +61,7 @@ const loginController=async (req,res)=>{
         }
         const token=jwt.sign({id: user._id},process.env.JWT_SECRET,{expiresIn: '1d'});
 
-        res.cookie("login",token,{
+        res.cookie("token",token,{
             maxAge: 3000 * 60 * 60* 1,
             httpOnly: true,
             secure: true,

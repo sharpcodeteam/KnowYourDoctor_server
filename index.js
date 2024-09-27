@@ -1,7 +1,8 @@
 const express=require('express');
 const morgan=require('morgan');
 const dotenv=require('dotenv');
-const cookieParser=require('cookie-parser');
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 const connectDB=require('./config/db');
 const userRouter = require('./routes/userRoutes');
 const path=require('path');
@@ -11,8 +12,10 @@ dotenv.config();
 connectDB();
 
 const app=express();
-
 app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(
