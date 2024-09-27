@@ -5,7 +5,7 @@ const JWT=require('jsonwebtoken');
 module.exports=async(req,res,next)=>{
     try {
         const token =
-          req.cookies.login;
+          req.cookies.token;
     
         //if token missing, then return response
         if (!token) {
