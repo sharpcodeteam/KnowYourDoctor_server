@@ -79,8 +79,11 @@ const loginController=async (req,res)=>{
 
 const authController=async (req,res)=>{
 try{
+    const token=req.body.token;
+    const decode = jwt.verify(token, process.env.JWT_SECRET);
+    console.log(decode)
     const data=req.body;
-    const user=await userModel.findOne({email: data.email});
+    const user=await userModel.findById({_id: decode.id});
     if(!user){
         return res.status(200).send({message: "User Not Found",success: false});
     }

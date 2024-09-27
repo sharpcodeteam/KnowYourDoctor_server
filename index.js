@@ -38,5 +38,5 @@ app.get("*",function(req,res){
 });
 
 app.listen(port,()=>{
-    console.log(`Server is listening at port ${port} in ${process.env.NODE_MODE} mode`);
+    console.log(`Server is listening at port ${port}`);
 });

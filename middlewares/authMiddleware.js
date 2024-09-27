@@ -17,7 +17,7 @@ module.exports=async(req,res,next)=>{
     
         //verify the token
         try {
-          const decode = jwt.verify(token, process.env.JWT_SECRET);
+          const decode = JWT.verify(token, process.env.JWT_SECRET);
           req.user = decode;
         } 
         catch (err) {
