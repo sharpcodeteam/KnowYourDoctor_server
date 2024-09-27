@@ -60,7 +60,12 @@ const loginController=async (req,res)=>{
             return res.status(200).send({message:"Invalid Email/Password"});
         }
         const token=jwt.sign({id: user._id},process.env.JWT_SECRET,{expiresIn: '1d'});
-        res.cookie("login",token);
+        res.cookie("login",token{
+            maxAge: 3000 * 60 * 60* 1,
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
+        });
         
         res.status(200).send({message: "Login Successfull",success: true,token});
 
