@@ -79,7 +79,8 @@ const loginController=async (req,res)=>{
 
 const authController=async (req,res)=>{
 try{
-    const user=await userModel.findOne({_id:req.body.userId});
+    const data=req.body;
+    const user=await userModel.findOne({email: data.email});
     if(!user){
         return res.status(200).send({message: "User Not Found",success: false});
     }
