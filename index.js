@@ -5,7 +5,7 @@ const cookieParser=require('cookie-parser');
 const connectDB=require('./config/db');
 const userRouter = require('./routes/userRoutes');
 const path=require('path');
-const cors= require('cors')
+const cors = require("cors");
 // const adminRouter=require('./routes/adminRoutes');
 dotenv.config();
 connectDB();
@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(
   cors({
-    origin: ['https://knowyourdoctor.netlify.app'],
+    origin: 'https://knowyourdoctor.netlify.app',
     credentials: true,
   })
 );
