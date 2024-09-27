@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(
   cors({
-    origin: ['http://localhost:3000'],
+    origin: ['https://knowyourdoctor.netlify.app'],
     credentials: true,
   })
 );
